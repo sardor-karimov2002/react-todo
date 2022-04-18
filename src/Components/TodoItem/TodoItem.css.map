@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,SAAS,CAAA;EACL,KAAK,EAAE,IAAI;EACX,OAAO,EAAE,IAAI;EACb,WAAW,EAAE,MAAM;EACnB,eAAe,EAAE,aAAa;EAC9B,UAAU,EAAE,aAAa;EACzB,OAAO,EAAE,IAAI;EACb,UAAU,EAAE,IAAI;CAMnB;;AALI,AAAD,gBAAQ,CAAA;EACJ,MAAM,EAAE,CAAC;EACT,YAAY,EAAE,IAAI;EAClB,WAAW,EAAE,IAAI;CACpB",
+    "sources": [
+        "TodoItem.scss"
+    ],
+    "names": [],
+    "file": "TodoItem.css"
+}
