@@ -1,44 +1,61 @@
+import React, { useState } from 'react';
+import TodoItem from '../TodoItem/TodoItem';
 import "./TodoList.scss"
-import TodoItem from "../TodoItem/TodoItem"
-import { useState } from "react"
-function TodoList() {
-    const data = [
-        {id:1, title:"O'qishga boraman", isCompleted:true},
-        {id:2, title:"5 olaman", isCompleted:false},
-        {id:3, title:"3 olaman", isCompleted:false},
-        {id:4, title:"Kantrakt to'layman", isCompleted:false},
-        {id:5, title:"5 olaman", isCompleted:false},
-    ]
-    const [todos, setTodos] = useState(data)
-    const handleDelete = (id) => {
-        setTodos(state => state.filter(item => item.id !== id))
-    }
-    const handleSubmit = (event) => {
-        event.preventDefault()
-        let todoInputEl = document.querySelector('#todo-input')
-        const lastEl = todos[todos.length-1] || {id:0}
-        const data = {
-            id:lastEl?.id+1,
-            title: todoInputEl.value,
-            isCompleted:false
-        }
-        todoInputEl.value = ""
-        console.log(data)
-        setTodos(state=>[...state, data])
+function Todolist() {
+    const data=[ ]
+    const [todos, setTodos]=useState(data)
+    const hendelete = (id)=> {
+        console.log(id);
+        setTodos(state=>{
+            const newState=state.filter(item=>item.id!=id)
+            return newState
+        })
     }
 
-    return <div className="todolist">
-        <h2>Todo app </h2>
-        <form onSubmit={handleSubmit}>
-            <input id="todo-input" type="text" />
-            <button type="submit">add</button>
+    const todoSubmit=(event)=>{
+        event.preventDefault();
+        let todoInputIsmi=document.querySelector("#todo-ismi");
+        let todoInputFamilya=document.querySelector("#todo-familya");
+        let todoInputLovazim=document.querySelector("#todo-lovazim");
+        let todoInputContak=document.querySelector("#todo-contak");
+        let xato=document.querySelector("#xato")
+        const lastel=todos[todos.length-1] || {id:0};
+        if(todoInputIsmi.value){
+            const mak={
+                id:lastel?.id+1,
+                ismi:todoInputIsmi.value,
+                familya:todoInputFamilya.value,
+                lavozimi:todoInputLovazim.value,
+                contak:todoInputContak.value,
+                isCompleted:false
+            }
+            setTodos(state=>[...state,mak])
+        xato.textContent=null
+            
+        }else{
+            xato.textContent="iltimos yozing "
+        }
+        todoInputIsmi.value=null
+        todoInputFamilya.value=null
+        todoInputLovazim.value=null
+        todoInputContak.value=null
+    }
+    return <div className='TodList'>
+        <h2>Toda List App <button className='input' onClick={()=> {setTodos([])}} >Barcha malumotlarni tozala</button> </h2>
+        <form id='form-el' onSubmit={todoSubmit}>
+            <input className='input' type="text" name="" id="todo-ismi" placeholder='Ismingizni kiriting...' />
+            <input className='input' type="text" name="" id="todo-familya" placeholder='Familyangizni kiriting...' />
+            <input className='input' type="text" name="" id="todo-lovazim" placeholder='Lavozimizni kiriting...' />
+            <input className='input' type="tel" name="" id="todo-contak" placeholder='Contakiz kiriting(+998...)' />
+            <button className='input'>Add</button>
         </form>
+        
         {
-            todos.length <=0 ? "Todos Not Found" : todos.map((element, index) => {
-                return <TodoItem key={index} onDelete={handleDelete} isCompleted={element.isCompleted} todo={element} />
+            todos.length<=0? "Bo'shlig'ni to'ldirib chiqing":todos.map((element,index)=>{
+                return <TodoItem key={index} onDelete={hendelete} todo={element} />
             })
         }
+        <div className='error' id="xato"></div>
     </div>
 }
-
-export default TodoList
+export default Todolist;

@@ -1,23 +1,27 @@
-.todoItem {
+.TodoItem {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  margin-top: 10px;
+  border: 1px solid;
+  padding: 5px;
+  background-color: aquamarine;
   -webkit-box-shadow: 0 0 5px black;
           box-shadow: 0 0 5px black;
-  padding: 10px;
-  margin-top: 10px;
 }
 
-.todoItem__title {
-  margin: 0;
-  margin-right: auto;
-  margin-left: 20px;
+.del {
+  color: whitesmoke;
+  font-size: 17px;
+  font-weight: 600;
+  font-family: sans-serif;
+  background-color: red;
+  padding: 7px;
+  border: 0;
+  border-radius: 4px;
 }
 /*# sourceMappingURL=TodoItem.css.map */

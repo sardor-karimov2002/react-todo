@@ -1,11 +1,8 @@
 import "./TodoItem.scss"
-
-function TodoItem({ todo, onDelete, isCompleted  = true}) {
-    return <div className="todoItem">
-        <input className="todoItem__check" type="checkbox" />
-        <h3 className="todoItem__title">{todo.id}|{todo.title} | { isCompleted ? "Bajarilgan" : "Bajarilmagan"} </h3>
-        <button onClick={()=>{ onDelete(todo.id) }} className="todoItem__btn">delete</button>
+function TodoItem({todo,onDelete}){
+    return <div className="TodoItem">
+        <h2>{todo.id} | {todo.ismi} {todo.familya} {todo.lavozimi} {todo.contak} </h2>
+        <button className="del" onClick={()=>onDelete(todo.id)}>Delet</button>
     </div>
 }
-
-export default TodoItem
+export default TodoItem;
